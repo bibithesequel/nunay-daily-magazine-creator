@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --editorial-paper: #ffffff;
+    --editorial-bg: #fafafa;
+    --editorial-border: #e4e4e7;
+    --editorial-text: #09090b;
+    --editorial-muted: #71717a;
+    --editorial-emerald: #059669;
+    --editorial-mint: #10b981;
+    --editorial-dark: #18181b;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Sharp Clean Scrollbar for White Mode */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f4f4f5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d4d4d8;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #10b981;
+  }
+}
+
+/* Custom Magazine Fonts */
+.font-bodoni {
+  font-family: 'Bodoni Moda', serif;
+}
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+.font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+.font-anton {
+  font-family: 'Anton', sans-serif;
+}
+.font-bebas {
+  font-family: 'Bebas Neue', cursive;
+}
+.font-oswald {
+  font-family: 'Oswald', sans-serif;
+}
+.font-syne {
+  font-family: 'Syne', sans-serif;
+}
+.font-pinyon {
+  font-family: 'Pinyon Script', cursive;
+}
+.font-italianno {
+  font-family: 'Italianno', cursive;
+}
+.font-vibes {
+  font-family: 'Great Vibes', cursive;
+}
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+.font-gothic {
+  font-family: 'UnifrakturMaguntia', cursive;
+}
+
+/* Clean Editorial Animations & Easing */
+@keyframes editorialFadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.998);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-editorial-fade {
+  animation: editorialFadeSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-subtle-float {
+  animation: subtleFloat 6s ease-in-out infinite;
+}
+
+/* Sharp Gradients */
+.emerald-gradient-text {
+  background: linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark-gradient-text {
+  background: linear-gradient(135deg, #09090b 0%, #27272a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ultra Sharp Magazine Shadow (Real Art Book / Studio Table Look) */
+.magazine-shadow {
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.glass-panel-white {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Print Specific Rules */
+@media print {
+  body {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-area {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    z-index: 99999 !important;
+    transform: none !important;
+  }
+
+  @page {
+    size: auto;
+    margin: 0mm;
+  }
+}
